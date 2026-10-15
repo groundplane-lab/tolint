@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tolint"
+version = "0.1.0"
+description = "Tolerance intervals for normal data (free core)"
+readme = "README.md"
+authors = [{name = "Groundplane Labs"}]
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy"]
+keywords = ["tolerance interval", "k factor", "howe", "noncentral t", "lognormal", "statistics", "quality engineering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Homepage = "https://groundplane0.gumroad.com/l/zxhmnx"
+
+[tool.setuptools.packages.find]
+where = ["src"]

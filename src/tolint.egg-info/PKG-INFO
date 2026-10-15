@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: tolint
+Version: 0.1.0
+Summary: Tolerance intervals for normal data (free core)
+Author: Groundplane Labs
+License: MIT
+Project-URL: Homepage, https://groundplane0.gumroad.com/l/zxhmnx
+Keywords: tolerance interval,k factor,howe,noncentral t,lognormal,statistics,quality engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Dynamic: license-file
+
+# tolint
+
+Free core of TolInt: tolerance intervals for normal data.
+
+**The problem**
+You need an interval that covers a stated proportion of the population with stated confidence, for a spec limit or a capability claim. A confidence interval covers a parameter, a prediction interval covers one future point. Neither answers "where do 95% of the parts fall". This does.
+
+**What it does**
+`norm_tol_int(x)` gives a two-sided tolerance interval by Howe's approximation (the form Minitab reports), and one-sided intervals are exact via the noncentral t distribution. `norm_k_factor(n)` gives the k-factor directly (interval = xbar +/- k*s). `lognormal=True` handles lognormal data through the standard log transform. Search terms: tolerance interval Python, normal tolerance interval, k factor tolerance, Howe tolerance interval.
+
+**Limits**
+Normal data only (lognormal through the log transform). The exact two-sided interval (Witkovsky) is not in this free core, and neither are distribution-free intervals or sample-size planning. No CLI.
+
+**Install**
+
+```bash
+pip install tolint
+```
+
+Needs Python 3.9 or newer, NumPy, and SciPy.
+
+```python
+from tolint import norm_tol_int
+import numpy as np
+x = np.array([10.1, 9.8, 10.3, 10.0, 9.9, 10.2, 10.1, 9.7, 10.0, 10.2])
+iv = norm_tol_int(x, P=0.95)
+print(iv.lower, iv.upper)
+```
+
+This is the free core: normal tolerance intervals (Howe two-sided, exact one-sided) and k-factors, with lognormal support. The full version ($30, one-time) adds the exact two-sided Witkovsky interval, two-sided nonparametric Wilks intervals, and sample-size planning: https://groundplane0.gumroad.com/l/zxhmnx

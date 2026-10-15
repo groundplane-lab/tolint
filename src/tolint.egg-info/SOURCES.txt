@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/tolint/__init__.py
+src/tolint/_normal.py
+src/tolint/_stubs.py
+src/tolint/_validate.py
+src/tolint.egg-info/PKG-INFO
+src/tolint.egg-info/SOURCES.txt
+src/tolint.egg-info/dependency_links.txt
+src/tolint.egg-info/requires.txt
+src/tolint.egg-info/top_level.txt
+tests/test_free.py
